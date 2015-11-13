@@ -1,33 +1,22 @@
-
 /**
- * Write a description of class NumberDisplay here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+     * Constructor for objects of class NumberDisplay
+     * Un constructor que recibe por parámetro el límite del display y que fija el valor actual del display a 0.
+     * Un método setter que fija el valor actual del display al valor pasado como parámetro (nombre del método: setValue).
+     * Un método que devuelve el valor actual del display en forma de cadena de 2 caracteres (nombre del método: getDisplayValue).
+     * Un método que devuelve el valor actual del display como entero (nombre del método: getValue),
+     * Un método que incrementa en 1 al display y lo hace volver al principio si alcanza el límite (nombre del método: increment)
+     */
 public class NumberDisplay
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private int limit;
+    
 
     /**
-     * Constructor for objects of class NumberDisplay
+     * constructor parametro limite y lo fija a 0.
      */
     public NumberDisplay()
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+       limit = 0;
     }
 }
