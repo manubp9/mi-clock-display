@@ -10,6 +10,7 @@ public class NumberDisplay
 {
     // instance variables - replace the example below with your own
     private int limit;
+    private int display;
     
 
     /**
@@ -17,6 +18,16 @@ public class NumberDisplay
      */
     public NumberDisplay()
     {
-       limit = 0;
+       limit = limit;
+       display = 0;
     }
+    /**
+     * 
+     */
+    public void setValue(int value){
+        display = value  ;
+    }
+    
+    
+    
 }
