@@ -22,12 +22,30 @@ public class NumberDisplay
        display = 0;
     }
     /**
-     * 
+     * setter que fija el valor actual del display al valor pasado como parámetro 
      */
     public void setValue(int value){
         display = value  ;
     }
-    
-    
-    
+   
+    /**
+     * método que devuelve el valor actual del display en forma de cadena de 2 caracteres
+     */
+    public String getDisplayValue(){
+        String displayValue;
+        if (display >=0 && display> 10){
+            displayValue = "0" + display ;
+        }
+        else 
+        { 
+            displayValue = "" + display;
+        }
+           
+        return displayValue;
+    }
 }
+
+        
+    
+
+
