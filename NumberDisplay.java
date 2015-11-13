@@ -16,10 +16,10 @@ public class NumberDisplay
     /**
      * constructor parametro limite y lo fija a 0.
      */
-    public NumberDisplay()
+    public NumberDisplay(int limite)
     {
-       limit = limit;
-       display = 0;
+       limit = limite;
+       display = 0 ;
     }
     /**
      * setter que fija el valor actual del display al valor pasado como parámetro 
