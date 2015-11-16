@@ -44,7 +44,7 @@ public class NumberDisplay
      */
     public String getDisplayValue(){
         String displayValue;
-        if (display >=0 && display> 10){
+        if (display >=0 && display< 10){
             displayValue = "0" + display ;
         }
         else 
