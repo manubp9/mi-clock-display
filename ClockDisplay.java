@@ -25,8 +25,8 @@ public class ClockDisplay
     public ClockDisplay()
     {
        //fija la hora a 00:00
-       horas = new NumberDisplay(23);
-       minutos = new NumberDisplay(59);
+       horas = new NumberDisplay(24);
+       minutos = new NumberDisplay(60);
        horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
     }
     /**
@@ -34,8 +34,8 @@ public class ClockDisplay
      */
     public ClockDisplay(int horasActual, int minutosActual)
     {
-       horas = new NumberDisplay(23);
-       minutos = new NumberDisplay(59);
+       horas = new NumberDisplay(24);
+       minutos = new NumberDisplay(60);
        horas.setValue(horasActual);
        minutos.setValue(minutosActual);
        horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
@@ -48,8 +48,8 @@ public class ClockDisplay
      */
     public void setTime(int horasActual , int minutosActual)
     {
-        horas = new NumberDisplay(23);
-        minutos = new NumberDisplay(59);
+        horas = new NumberDisplay(24);
+        minutos = new NumberDisplay(60);
         horas.setValue(horasActual);
         minutos.setValue(minutosActual);
         horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
