@@ -15,7 +15,7 @@ public class ClockDisplay
     // instance variables - replace the example below with your own
     private NumberDisplay horas;
     private NumberDisplay minutos;
-    private String hora;
+    private String horaActual;
     
     
 
@@ -51,6 +51,16 @@ public class ClockDisplay
         horas.setValue(horasActual);
         minutos.setValue(minutosActual);
     }
+    /**
+     *  un método getTime que devuelva la hora como String de 5 caracteres.
+     */
+    public String getTime ()
+    {
+        horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+        return horaActual;
+        
+    }
+   
 }
     
     
