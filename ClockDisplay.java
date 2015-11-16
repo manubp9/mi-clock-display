@@ -27,6 +27,7 @@ public class ClockDisplay
        //fija la hora a 00:00
        horas = new NumberDisplay(23);
        minutos = new NumberDisplay(59);
+       horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
     }
     /**
      * constructor para representar horas y minutos
@@ -37,6 +38,7 @@ public class ClockDisplay
        minutos = new NumberDisplay(59);
        horas.setValue(horasActual);
        minutos.setValue(minutosActual);
+       horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
        
        
     }
@@ -50,6 +52,7 @@ public class ClockDisplay
         minutos = new NumberDisplay(59);
         horas.setValue(horasActual);
         minutos.setValue(minutosActual);
+        horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
     }
     /**
      *  un método getTime que devuelva la hora como String de 5 caracteres.
@@ -60,8 +63,20 @@ public class ClockDisplay
         return horaActual;
         
     }
-   
+   /**
+    * método timeTick que haga avanzar un minuto la hora actual (sea esta la que sea originalmente).
+    */
+   public void timeTick()
+   {
+       minutos.increment();
+       if ( minutos.getValue() == 0){
+           horas.increment();
+        }
+         horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+    }  
 }
+       
+
     
     
 
