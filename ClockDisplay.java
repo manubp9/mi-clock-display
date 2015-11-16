@@ -44,10 +44,16 @@ public class ClockDisplay
      * Tener un método setTime que acepte dos parámetros de tipo int, que representan horas y minutos, 
      * y que fije dichos valores como el tiempo actual del reloj.
      */
-    public int setTime(int horas , int minutos){
-        
+    public void setTime(int horasActual , int minutosActual)
+    {
+        horas = new NumberDisplay(23);
+        minutos = new NumberDisplay(59);
+        horas.setValue(horasActual);
+        minutos.setValue(minutosActual);
     }
+}
+    
     
 
 
-}
+
