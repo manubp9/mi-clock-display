@@ -56,8 +56,9 @@ public class ClockDisplay
        horas.setValue(horasActual);
        minutos.setValue(minutosActual);
        if ( horasActual > 12 )
-       horaActual = horas.getValue() -12 + ":" + minutos.getDisplayValue() + "pm";
+       horaActual = horas.getValue() - 12 + ":" + minutos.getDisplayValue() + "pm";
        else horaActual = horas.getValue() + ":" + minutos.getDisplayValue() + "am";
+       
        
        
        
@@ -72,7 +73,13 @@ public class ClockDisplay
         minutos = new NumberDisplay(60);
         horas.setValue(horasActual);
         minutos.setValue(minutosActual);
-        horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+        if ( horasActual > 12 )
+       horaActual = horas.getValue() - 12 + ":" + minutos.getDisplayValue() + "pm";
+       else horaActual = horas.getValue() + ":" + minutos.getDisplayValue() + "am";
+       
+       
+        
+        
     }
     /**
      *  un método getTime que devuelva la hora como String de 5 caracteres.
@@ -80,8 +87,7 @@ public class ClockDisplay
     public String getTime ()
     {
         
-        horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
-        return horaActual;
+       return horaActual;
         
     }
    /**
@@ -93,7 +99,8 @@ public class ClockDisplay
        if ( minutos.getValue() == 0){
            horas.increment();
         }
-         horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+       if ( horasActual > 12 ) horaActual =  horaActual = horas.getValue() - 12 + ":" +( minutos.getDisplayValue() + 1) + "pm";
+       else horaActual = horas.getValue() + ":" + (minutos.getDisplayValue() +1) + "am";
     }  
 }
        
