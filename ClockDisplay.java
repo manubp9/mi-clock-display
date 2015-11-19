@@ -7,8 +7,25 @@ Tener un método setTime que acepte dos parámetros de tipo int, que representan
 Tener un método getTime que devuelva la hora como String de 5 caracteres.
 Tener un método timeTick que haga avanzar un minuto la hora actual (sea esta la que sea originalmente).
 Una vez que hayas comprobado que funciona, sube el repositorio a GitHub e indica la URL del último commit como respuesta de esta actividad.
+/**
  * 
- 
+ * Se pide que modifiques el código del proyecto del reloj para que funcione como un reloj
+ * en formato de 12 horas en vez de 24.
+
+ * El funcionamiento del reloj en formato de 12 horas debe ser conforme al que describe la Wikipedia:
+
+ * http://es.wikipedia.org/wiki/Sistema_horario_de_12_horas
+
+ * Solo puedes modificar el código de 
+
+ * la clase ClockDisplay y no puedes cambiar bajo ningún concepto las cabeceras de los métodos 
+
+ * y constructores.
+ * El sistema horario de 12 horas es una convención de medición del tiempo en la que las 24 horas del día
+ * se dividen en dos períodos1 ante merídiem (a. m., español: "antes del mediodía") y post merídiem 
+ * (p. m., español: "después del mediodía").2 Cada período se compone de 12 horas, cuya numeración comienza en el 12
+ * (actuando como 0), 1, 2 y sucesivamente hasta 11. Para las doce de la mañana se recomienda el empleo de la abreviatura Md(Medio-Día).
+ * 
  */
 public class ClockDisplay
 {
@@ -38,7 +55,10 @@ public class ClockDisplay
        minutos = new NumberDisplay(60);
        horas.setValue(horasActual);
        minutos.setValue(minutosActual);
-       horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+       if ( horasActual > 12 )
+       horaActual = horas.getValue() -12 + ":" + minutos.getDisplayValue() + "pm";
+       else horaActual = horas.getValue() + ":" + minutos.getDisplayValue() + "am";
+       
        
        
     }
@@ -59,6 +79,7 @@ public class ClockDisplay
      */
     public String getTime ()
     {
+        
         horaActual = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
         return horaActual;
         
