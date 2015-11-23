@@ -1,19 +1,19 @@
 #BlueJ class context
-comment0.params=tipoHora
+comment0.params=Reloj12H
 comment0.target=ClockDisplay(boolean)
 comment0.text=\r\n\ Crea\ un\ objeto\ ClockDisplay\ con\ hora\ por\ defecto\ 00\:00.te\ da\ a\ elegir\ formato\ de\ 12h\ a\ 24\ con\ un\ parametro\ booleano.\r\n\ pone\ a\u00F1o\ mes\ y\ dia\ por\ defecto\ y\ se\ representan\ con\ un\ string.\r\n\ \r\n
-comment1.params=horasX\ minutosX\ a\u00F1oX\ mesX\ diaX
-comment1.target=ClockDisplay(int,\ int,\ int,\ int,\ int)
-comment1.text=\ \r\n\ Crea\ un\ objeto\ ClockDisplay\ con\ la\ hora\ ,\ los\ minutos\ dados\ ,\ ya\ a\u00F1ado\ a\u00F1o,\ mes\ y\ dia.\r\n
-comment2.params=horaY\ minutoY\ a\u00F1oY\ mesY\ diaY\ reloj12H
-comment2.target=void\ setTime(int,\ int,\ int,\ int,\ int,\ boolean)
+comment1.params=horasX\ minutosX\ a\u00F1oX\ mesX\ diaX\ reloj12H
+comment1.target=ClockDisplay(int,\ int,\ int,\ int,\ int,\ boolean)
+comment1.text=\ \r\n\ Crea\ un\ objeto\ ClockDisplay\ con\ la\ hora\ ,\ los\ minutos\ dados\ ,\ y\ a\u00F1ado\ a\u00F1o,\ mes\ y\ dia.\r\n
+comment2.params=horaY\ minutoY\ a\u00F1oY\ mesY\ diaY
+comment2.target=void\ setTime(int,\ int,\ int,\ int,\ int)
 comment2.text=\r\n\ Fija\ la\ hora\ del\ reloj\ a\ la\ hora\ \ los\ minutos\ dados\ el\ a\u00F1o\ el\ mes\ y\ el\ dia.\ te\ da\ a\ elegir\ entre\ formato\ 12h\ o\ 24h.\r\n
 comment3.params=
 comment3.target=java.lang.String\ getTime()
 comment3.text=\r\n\ Devuelve\ la\ hora\ del\ reloj\ como\ una\ cadena\ de\ 5\ caracteres\r\n
 comment4.params=
 comment4.target=void\ timeTick()
-comment4.text=\r\n\ Hace\ avanzar\ la\ hora\ 1\ minuto\r\n
+comment4.text=\r\n\ Hace\ avanzar\ la\ hora\ 1\ minuto\ y\ si\ es\ necesario\ cambia\ dia\ ,\ mes\ o\ a\u00F1o\r\n
 comment5.params=
 comment5.target=void\ updateHoraActual()
 comment5.text=\r\n\ Actualiza\ el\ atributo\ horaActual\ siguiendo\ las\ normas\ de\ un\r\n\ reloj\ de\ 12\ horas.\r\n\ se\ a\u00F1ade\ la\ fecha\ \r\n

@@ -71,26 +71,25 @@ public class ClockDisplay
      */
     
     
-    public ClockDisplay(boolean tipoHora)
+    public ClockDisplay(boolean Reloj12H)
     {
-        tipoReloj = tipoHora;
+        tipoReloj = Reloj12H;
         horas = new NumberDisplay(24);
         minutos = new NumberDisplay(60);
         año = new NumberDisplay(100);
         mes = new NumberDisplay (13);
         dia = new NumberDisplay (31);
-        updateHoraActual();
         fechaActual = dia.getDisplayValue() + "/"+ mes.getDisplayValue() + "/"+ año.getDisplayValue();
-        
-
+        updateHoraActual();
     }
 
     /** 
-     * Crea un objeto ClockDisplay con la hora , los minutos dados , ya añado año, mes y dia.
+     * Crea un objeto ClockDisplay con la hora , los minutos dados , y añado año, mes y dia.
      */
-    public ClockDisplay (int horasX, int minutosX, int añoX , int mesX ,int diaX)
+    public ClockDisplay (int horasX, int minutosX, int añoX , int mesX ,int diaX,boolean reloj12H)
     {
-        horas =   new NumberDisplay(24);
+        tipoReloj = reloj12H;
+        horas = new NumberDisplay(24);
         minutos = new NumberDisplay(60); 
         año = new NumberDisplay(100);
         mes = new NumberDisplay (13);
@@ -100,14 +99,14 @@ public class ClockDisplay
         año.setValue(añoX);
         mes.setValue(mesX);
         dia.setValue(diaX);
-        updateHoraActual();
         fechaActual = dia.getDisplayValue() + "/"+ mes.getDisplayValue() + "/"+ año.getDisplayValue();
-           }
+        updateHoraActual();
+    }
 
     /**
      * Fija la hora del reloj a la hora  los minutos dados el año el mes y el dia. te da a elegir entre formato 12h o 24h.
      */
-    public void setTime(int horaY, int minutoY ,int añoY , int mesY ,int diaY, boolean reloj12H)
+    public void setTime(int horaY, int minutoY ,int añoY , int mesY ,int diaY)
     {
         horas.setValue(horaY);  
         minutos.setValue(minutoY);
@@ -115,7 +114,7 @@ public class ClockDisplay
         mes.setValue(mesY);
         dia.setValue(diaY);
         fechaActual = dia.getDisplayValue() + "/"+ mes.getDisplayValue() + "/"+ año.getDisplayValue();
-        
+        updateHoraActual();
     }
 
     /**
@@ -123,68 +122,67 @@ public class ClockDisplay
      */
     public String getTime()
     {
-        return horaActual;
+        if (tipoReloj == true){
+           updateHoraActual();
+       }
+       return horaActual;
     }
 
     /**
-     * Hace avanzar la hora 1 minuto
+     * Hace avanzar la hora 1 minuto y si es necesario cambia dia , mes o año
      */
     public void timeTick()
-    {{
+    {
        minutos.increment();
        if (minutos.getValue() == 0){
            horas.increment();
            if (horas.getValue() == 0){
-               if (dia.getValue() == 30){
-                   dia.increment();
+               dia.increment();
+               if (dia.getValue() == 0){
                    dia.increment();
                    if (dia.getValue() == 1){
-                       if (mes.getValue() == 12){
-                           mes.increment();
+                       mes.increment();
+                       if (mes.getValue() == 0){
                            mes.increment();
                            if (mes.getValue() == 1){
                                año.increment();
                            }
                        }
-                       else{
-                           mes.increment();
-                       }
                    }
-               }
-               else {
-                   dia.increment();
                }
            }
        }
-       updateHoraActual();
    }
         
-    }
+
 
     /**
      * Actualiza el atributo horaActual siguiendo las normas de un
      * reloj de 12 horas.
      * se añade la fecha 
      */
-    public void updateHoraActual()
+    public void updateHoraActual()// tambien incluye la fecha
     {
+        String formato;
+        int horaAhora = horas.getValue();
         if (tipoReloj == true){ // (relojDe12H) es lo mismo
-            String formato = "a.m.";
-            int horaAhora = horas.getValue(); 
-            if (horaAhora >= 12){
-                formato = "p.m.";
+            if (horaAhora > 12){
+                formato = " p.m.";
             }
-
+            else {
+                formato = " a.m.";
+            }
             if (horaAhora > 12) {
                 horaAhora = horaAhora - 12;
             }
-            else if (horaAhora == 0) {
+            else if (horaAhora == 0 || horaAhora == 12) {
                 horaAhora = 12;
             }
-            horaActual = horaAhora + ":" + minutos.getDisplayValue() + " /"  + dia.getDisplayValue() +"/"+ mes.getDisplayValue() +"/"+ año.getDisplayValue();
+            horaActual = horaAhora + ":" + minutos.getDisplayValue() + formato +
+            " "  + dia.getDisplayValue() + "/"+ mes.getDisplayValue() + "/"+ año.getDisplayValue();
         }
-        else {
-            horaActual = horas.getDisplayValue() + " : " + minutos.getDisplayValue()+" /"+ dia.getDisplayValue()+"/" + mes.getDisplayValue() +"/"+ año.getDisplayValue();
+        else{
+            horaActual = horaAhora + ":" + minutos.getDisplayValue() + " "  + dia.getDisplayValue() + "/"+ mes.getDisplayValue() + "/"+ año.getDisplayValue();
         }
     }
 
@@ -194,8 +192,6 @@ public class ClockDisplay
     public void changeFormat()
     {
        tipoReloj = !tipoReloj;
-       updateHoraActual();
-    }	
+    }   
    
 }
-
